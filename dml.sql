@@ -1,8 +1,8 @@
 -- Insertar datos en la tabla Empresa
 INSERT INTO empresa (nombre, nit, direccion_principal, telefono, email, sitio_web, fecha_fundacion)
 VALUES 
-('CampusLands', '900123456-7', 'Av. Siempre Viva 123', '5551234567', 'info@campuslands.com', 'www.campuslands.com', '2018-01-15'),
-('Tech Academy', '900987654-3', 'Calle Innovación 456', '5559876543', 'contacto@techacademy.com', 'www.techacademy.com', '2019-03-20');
+('CampusLands', '900123456-7', 'Av. Siempre Viva 123', '5551234567', 'info@campuslands.com', 'www.campuslands.com', '2018-01-15');
+
 
 -- Insertar datos en la tabla Estados
 INSERT INTO estados (nombre)
@@ -27,10 +27,10 @@ VALUES
 -- Insertar datos en la tabla Sedes
 INSERT INTO sedes (nombre, direccion, ciudad_id, empresa_id)
 VALUES 
-('Campus Central', 'Calle 123 #45-67', 1, 1),
-('Campus Norte', 'Av. Principal 234', 2, 1),
-('Campus Sur', 'Carrera 56 #78-90', 3, 1),
-('Tech Academy HQ', 'Carrera 45 #12-34', 2, 2);
+('Campus Bucaramnga', 'km 4 anillo vial', 1, 1),
+('Campus cucuta', 'Av. Principal 234', 2, 1),
+('Campus bogota', 'Carrera 56 #78-90', 3, 1);
+
 
 -- Insertar datos en la tabla Niveles de Riesgo
 INSERT INTO niveles_riesgo (nivel)
@@ -40,53 +40,91 @@ VALUES
 ('Alto');
 
 -- Insertar datos en la tabla Campers
-INSERT INTO campers (identificacion, nombres, apellidos, direccion, acudiente, estado_id, nivel_riesgo_id, sede_id)
+INSERT INTO campers (identificacion, nombres, apellidos, direccion, estado_id, nivel_riesgo_id, sede_id)
 VALUES 
-('1001234567', 'Juan', 'Pérez', 'Calle 10 #23-45', 'María Pérez', 4, 1, 1),
-('1002345678', 'Ana', 'Gómez', 'Av. 5 #12-34', 'Carlos Gómez', 3, 1, 1),
-('1003456789', 'Pedro', 'Rodríguez', 'Carrera 15 #45-67', 'Laura Rodríguez', 1, 2, 2),
-('1004567890', 'Sofía', 'Martínez', 'Calle 20 #56-78', 'Jorge Martínez', 2, 1, 2),
-('1005678901', 'Carlos', 'López', 'Av. 30 #67-89', 'Patricia López', 4, 2, 1),
-('1006789012', 'Valentina', 'Sánchez', 'Diagonal 25 #12-34', 'Roberto Sánchez', 5, 1, 3),
-('1007890123', 'Diego', 'Torres', 'Carrera 40 #23-45', 'Claudia Torres', 6, 3, 3),
-('1008901234', 'Isabella', 'Ramírez', 'Calle 50 #34-56', 'Fernando Ramírez', 7, 2, 1),
-('1009012345', 'Alejandro', 'Hernández', 'Av. 60 #45-67', 'Mónica Hernández', 4, 1, 2),
-('1010123456', 'Camila', 'Díaz', 'Carrera 70 #56-78', 'Eduardo Díaz', 4, 2, 3),
-('1011234567', 'Fernando', 'Aguilar', 'Calle 15 #10-25', 'Mariana Aguilar', 1, 1, 1),
-('1012345678', 'Marcela', 'Velasco', 'Av. 8 #22-14', 'Jaime Velasco', 1, 2, 2),
-('1013456789', 'Gabriel', 'Orozco', 'Carrera 25 #45-12', 'Luz Orozco', 1, 1, 3),
-('1014567890', 'Daniela', 'Paredes', 'Calle 30 #16-28', 'Miguel Paredes', 1, 3, 1),
-('1015678901', 'Ricardo', 'Quintero', 'Diagonal 45 #27-39', 'Carmen Quintero', 1, 2, 2),
-('1016789012', 'Natalia', 'Bedoya', 'Carrera 22 #33-67', 'Pablo Bedoya', 2, 1, 3),
-('1017890123', 'Julián', 'Castaño', 'Av. 40 #21-54', 'Martha Castaño', 2, 2, 1),
-('1018901234', 'Mariana', 'Duarte', 'Calle 65 #14-26', 'Luis Duarte', 2, 1, 2),
-('1019012345', 'Santiago', 'Restrepo', 'Diagonal 35 #49-71', 'Sara Restrepo', 2, 3, 3),
-('1020123456', 'Valentina', 'Montoya', 'Carrera 50 #66-88', 'Héctor Montoya', 2, 2, 1),
-('1021234567', 'Andrés', 'Zapata', 'Calle 75 #30-42', 'Ángela Zapata', 3, 1, 2),
-('1022345678', 'Laura', 'Bernal', 'Av. 32 #82-59', 'Roberto Bernal', 3, 2, 3),
-('1023456789', 'Sebastián', 'Giraldo', 'Carrera 37 #12-84', 'Isabel Giraldo', 3, 1, 1),
-('1024567890', 'Catalina', 'Morales', 'Diagonal 42 #23-67', 'Andrés Morales', 3, 3, 2),
-('1025678901', 'Esteban', 'Hurtado', 'Calle 55 #41-29', 'Teresa Hurtado', 3, 2, 3),
-('1026789012', 'Valeria', 'Castro', 'Carrera 62 #13-75', 'Diego Castro', 4, 1, 1),
-('1027890123', 'Mateo', 'Vargas', 'Av. 28 #71-36', 'Natalia Vargas', 4, 2, 2),
-('1028901234', 'Camila', 'Correa', 'Calle 85 #24-58', 'Juan Correa', 4, 1, 3),
-('1029012345', 'Felipe', 'Ospina', 'Diagonal 33 #67-91', 'Paula Ospina', 4, 3, 1),
-('1030123456', 'Isabella', 'Jaramillo', 'Carrera 44 #36-63', 'Carlos Jaramillo', 4, 2, 2),
-('1031234567', 'Santiago', 'Cardona', 'Calle 92 #30-47', 'Marcela Cardona', 5, 1, 3),
-('1032345678', 'María', 'González', 'Av. 38 #22-59', 'Fernando González', 5, 2, 1),
-('1033456789', 'Juan', 'Salazar', 'Carrera 27 #52-84', 'Ana Salazar', 5, 1, 2),
-('1034567890', 'Paula', 'Mejía', 'Diagonal 42 #63-17', 'Julián Mejía', 5, 3, 3),
-('1035678901', 'David', 'Ruiz', 'Calle 55 #81-29', 'Lucía Ruiz', 5, 2, 1),
-('1036789012', 'Alejandra', 'Vélez', 'Carrera 62 #43-75', 'Hernando Vélez', 6, 1, 2),
-('1037890123', 'Samuel', 'Mendoza', 'Av. 78 #31-36', 'Carolina Mendoza', 6, 2, 3),
-('1038901234', 'Gabriela', 'Uribe', 'Calle 85 #24-58', 'Mauricio Uribe', 6, 1, 1),
-('1039012345', 'Lucas', 'Arango', 'Diagonal 33 #67-91', 'Patricia Arango', 6, 3, 2),
-('1040123456', 'Manuela', 'Escobar', 'Carrera 44 #36-63', 'Ricardo Escobar', 6, 2, 3),
-('1041234567', 'José', 'Patiño', 'Calle 32 #20-47', 'Claudia Patiño', 7, 1, 1),
-('1042345678', 'Sara', 'Osorio', 'Av. 58 #42-59', 'Andrés Osorio', 7, 2, 2),
-('1043456789', 'Daniel', 'Botero', 'Carrera 67 #22-84', 'Margarita Botero', 7, 1, 3),
-('1044567890', 'Luciana', 'Valencia', 'Diagonal 72 #13-17', 'Esteban Valencia', 7, 3, 1),
-('1045678901', 'Tomás', 'Bueno', 'Calle 45 #31-29', 'Valentina Bueno', 7, 2, 2);
+('1001234567', 'Juan', 'Pérez', 'Calle 10 #23-45', 4, 1, 1),
+('1002345678', 'Ana', 'Gómez', 'Av. 5 #12-34', 3, 1, 1),
+('1003456789', 'Pedro', 'Rodríguez', 'Carrera 15 #45-67', 1, 2, 2),
+('1004567890', 'Sofía', 'Martínez', 'Calle 20 #56-78', 2, 1, 2),
+('1005678901', 'Carlos', 'López', 'Av. 30 #67-89', 4, 2, 1),
+('1006789012', 'Valentina', 'Sánchez', 'Diagonal 25 #12-34', 5, 1, 3),
+('1007890123', 'Diego', 'Torres', 'Carrera 40 #23-45', 6, 3, 3),
+('1008901234', 'Isabella', 'Ramírez', 'Calle 50 #34-56', 7, 2, 1),
+('1009012345', 'Alejandro', 'Hernández', 'Av. 60 #45-67', 4, 1, 2),
+('1010123456', 'Camila', 'Díaz', 'Carrera 70 #56-78', 4, 2, 3),
+('1011234567', 'Mateo', 'García', 'Calle 80 #67-89', 4, 1, 1),
+('1012345678', 'María', 'Martínez', 'Diagonal 90 #12-34', 4, 2, 2),
+('1013456789', 'Julián', 'López', 'Carrera 100 #23-45', 4, 1, 3),
+('1014567890', 'Valeria', 'Sánchez', 'Av. 110 #34-56', 4, 2, 1),
+('1015678901', 'Santiago', 'Torres', 'Calle 120 #45-67', 4, 1, 2),
+('1016789012', 'Luciana', 'Ramírez', 'Carrera 130 #56-78', 4, 2, 3),
+('1017890123', 'Emiliano', 'Hernández', 'Av. 140 #67-89', 4, 1, 1),
+('1018901234', 'Antonella', 'Díaz', 'Diagonal 150 #12-34', 4, 2, 2),
+('1019012345', 'Emilio', 'García', 'Carrera 160 #23-45', 4, 1, 3),
+('1020123456', 'Mariana', 'Martínez', 'Av. 170 #34-56', 4, 2, 1),
+('1021234567', 'Benjamín', 'López', 'Calle 180 #45-67', 4, 1, 2),
+('1022345678', 'Isidora', 'Sánchez', 'Carrera 190 #56-78', 4, 2, 3),
+('1023456789', 'Emiliano', 'Torres', 'Av. 200 #67-89', 4, 1, 1),
+('1024567890', 'Antonella', 'Ramírez', 'Diagonal 210 #12-34', 4, 2, 2),
+('1025678901', 'Emilio', 'Hernández', 'Carrera 220 #12-36' , 4, 2, 2),
+('1026789012', 'Mariana', 'Díaz', 'Av. 230 #34-56', 4, 2, 1),
+('1027890123', 'Benjamín', 'García', 'Calle 240 #45-67', 4, 1, 2),
+('1028901234', 'Isidora', 'Martínez', 'Carrera 250 #56-78', 4, 2, 3),
+('1029012345', 'Emiliano', 'López', 'Av. 260 #67-89', 4, 1, 1),
+('1030123456', 'Antonella', 'Sánchez', 'Diagonal 270 #12-34', 4, 2, 2),
+('1031234567', 'Emilio', 'Torres', 'Carrera 280 #23-45', 4, 1, 3),
+('1032345678', 'Mariana', 'Ramírez', 'Av. 290 #34-56', 4, 2, 1),
+('1033456789', 'Benjamín', 'Hernández', 'Calle 300 #45-67', 4, 1, 2),
+('1034567890', 'Isidora', 'Díaz', 'Carrera 310 #56-78', 4, 2, 3),
+('1035678901', 'Emiliano', 'García', 'Av. 320 #67-89', 4, 1, 1),
+('1036789012', 'Antonella', 'Martínez', 'Diagonal 330 #12-34', 4, 2, 2),
+('1037890123', 'Emilio', 'López', 'Carrera 340 #23-45', 4, 1, 3),
+('1038901234', 'Mariana', 'Sánchez', 'Av. 350 #34-56', 4, 2, 1),
+('1039012345', 'Benjamín', 'Torres', 'Calle 360 #45-67', 4, 1, 2);
+
+
+
+-- insertar datos acudiente
+INSERT INTO acudiente (nombres, apellidos, telefono) VALUES
+('Juan', 'Pérez', '3001234567'),
+('Ana', 'Gómez', '3101234567'),
+('Pedro', 'Rodríguez', '3002345678'),
+('Sofía', 'Martínez', '3003456789'),
+('Carlos', 'López', '3004567890'),
+('Valentina', 'Sánchez', '3005678901'),
+('Diego', 'Torres', '3006789012'),
+('Isabella', 'Ramírez', '3007890123'),
+('Alejandro', 'Hernández', '3008901234'),
+('Camila', 'Díaz', '3009012345'),
+('Mateo', 'García', '3010123456'),
+('María', 'Martínez', '3011234567'),
+('Julián', 'López', '3012345678'),
+('Valeria', 'Sánchez', '3013456789'),
+('Santiago', 'Torres', '3014567890'),
+('Luciana', 'Ramírez', '3015678901'),
+('Emiliano', 'Hernández', '3016789012'),
+('Antonella', 'Díaz', '3017890123'),
+('Emilio', 'García', '3018901234'),
+('Mariana', 'Martínez', '3019012345'),
+('Benjamín', 'López', '3020123456'),
+('Isidora', 'Sánchez', '3021234567'),
+('Emiliano', 'Torres', '3022345678'),
+('Antonella', 'Ramírez', '3023456789'),
+('Emilio', 'Hernández', '3024567890'),
+('Mariana', 'Díaz', '3025678901'),
+('Benjamín', 'García', '3026789012'),
+('Isidora', 'Martínez', '3027890123'),
+('Emiliano', 'López', '3028901234'),
+('Antonella', 'Sánchez', '3029012345'),
+('Emilio', 'Torres', '3030123456'),
+('Mariana', 'Ramírez', '3031234567'),
+('Benjamín', 'Hernández', '3032345678'),
+('Isidora', 'Díaz', '3033456789'),
+('Emiliano', 'García', '3034567890'),
+('Antonella', 'Martínez', '3035678901'),
+('Emilio', 'López', '3036789012'),
+('Mariana', 'Sánchez', '3037890123'),
+('Benjamín', 'Torres', '3038901234');
 
 -- Insertar datos en la tabla Teléfonos de Campers
 INSERT INTO telefono_camper (camper_id, telefono, tipo_telefono)
@@ -131,22 +169,22 @@ VALUES
 (36, '3036789012', 'Principal'),
 (37, '3037890123', 'Principal'),
 (38, '3038901234', 'Principal'),
-(39, '3039012345', 'Principal'),
-(40, '3040123456', 'Principal'),
-(41, '3041234567', 'Principal'),
-(42, '3042345678', 'Principal'),
-(43, '3043456789', 'Principal'),
-(44, '3044567890', 'Principal'),
-(45, '3045678901', 'Principal');
+(39, '3039012345', 'Principal');
 
--- Insertar datos en la tabla Áreas de Entrenamiento
-INSERT INTO areas_entrenamiento (nombre, capacidad_maxima, sede_id)
+-- Insertar datos en la tabla Salones
+INSERT INTO area (nombre, sede_id, capacidad)
 VALUES 
-('Desarrollo Web', 30, 1),
-('Inteligencia Artificial', 25, 1),
-('Desarrollo Móvil', 28, 2),
-('DevOps', 20, 3),
-('Ciberseguridad', 22, 2);
+('apolo', 1, 33),
+('artemis', 1, 33),
+('sputnik', 1, 33),
+('apolo', 2, 33),
+('artemis', 2, 33),
+('sputnik', 2, 33),
+('apolo', 3, 33),
+('artemis', 3, 33),
+('sputnik', 3, 33);
+
+
 
 -- Insertar datos en la tabla Camper por Área
 INSERT INTO camper_area (camper_id, area_id, fecha_inicio, fecha_fin)
@@ -156,46 +194,40 @@ VALUES
 (3, 2, '2023-02-01', NULL),
 (4, 3, '2023-02-15', NULL),
 (5, 1, '2023-01-15', '2023-06-15'),
-(6, 4, '2022-07-01', '2022-12-20'),
-(7, 5, '2022-08-01', '2023-01-10'),
+(6, 2, '2022-07-01', '2022-12-20'),
+(7, 3, '2022-08-01', '2023-01-10'),
 (8, 2, '2022-09-01', '2023-02-01'),
 (9, 3, '2023-03-01', NULL),
-(10, 4, '2023-03-15', NULL),
+(10, 3, '2023-03-15', NULL),
 (11, 1, '2023-04-01', NULL),
 (12, 2, '2023-04-01', NULL),
 (13, 3, '2023-04-15', NULL),
-(14, 4, '2023-04-15', NULL),
-(15, 5, '2023-05-01', NULL),
+(14, 2, '2023-04-15', NULL),
+(15, 3, '2023-05-01', NULL),
 (16, 1, '2023-02-01', NULL),
 (17, 2, '2023-02-15', NULL),
 (18, 3, '2023-03-01', NULL),
-(19, 4, '2023-03-15', NULL),
-(20, 5, '2023-04-01', NULL),
+(19, 3, '2023-03-15', NULL),
+(20, 3, '2023-04-01', NULL),
 (21, 1, '2023-01-15', '2023-06-15'),
 (22, 2, '2023-01-15', '2023-06-15'),
 (23, 3, '2023-02-01', '2023-07-01'),
-(24, 4, '2023-02-15', '2023-07-15'),
-(25, 5, '2023-03-01', '2023-08-01'),
+(24, 3, '2023-02-15', '2023-07-15'),
+(25, 3, '2023-03-01', '2023-08-01'),
 (26, 1, '2023-01-15', NULL),
 (27, 2, '2023-01-15', NULL),
 (28, 3, '2023-02-01', NULL),
-(29, 4, '2023-02-15', NULL),
-(30, 5, '2023-03-01', NULL),
+(29, 3, '2023-02-15', NULL),
+(30, 3, '2023-03-01', NULL),
 (31, 1, '2022-01-15', '2022-06-15'),
 (32, 2, '2022-01-15', '2022-06-15'),
 (33, 3, '2022-02-01', '2022-07-01'),
-(34, 4, '2022-02-15', '2022-07-15'),
-(35, 5, '2022-03-01', '2022-08-01'),
+(34, 3, '2022-02-15', '2022-07-15'),
+(35, 3, '2022-03-01', '2022-08-01'),
 (36, 1, '2022-04-01', '2022-06-15'),
 (37, 2, '2022-04-15', '2022-06-01'),
 (38, 3, '2022-05-01', '2022-07-10'),
-(39, 4, '2022-05-15', '2022-07-20'),
-(40, 5, '2022-06-01', '2022-08-15'),
-(41, 1, '2022-03-01', '2022-05-15'),
-(42, 2, '2022-03-15', '2022-05-01'),
-(43, 3, '2022-04-01', '2022-06-10'),
-(44, 4, '2022-04-15', '2022-06-20'),
-(45, 5, '2022-05-01', '2022-07-15');
+(39, 3, '2022-05-15', '2022-07-20');
 
 
 -- Insertar datos en la tabla Módulos
@@ -273,88 +305,88 @@ VALUES
 (9, 10, 1),
 (10, 6, 0);
 
--- Insertar datos en la tabla Salones
-INSERT INTO salones (nombre, area_id, capacidad)
-VALUES 
-('Turing', 1, 30),
-('Jobs', 1, 25),
-('Gates', 2, 25),
-('Lovelace', 3, 28),
-('Hopper', 4, 20),
-('Berners-Lee', 5, 22);
+
+
 
 -- Insertar datos en la tabla Horarios
 INSERT INTO horarios (hora_inicio, hora_fin)
 VALUES 
-('08:00:00', '12:00:00'),
-('14:00:00', '18:00:00'),
-('18:00:00', '22:00:00');
+('06:00:00', '09:00:00'),
+('10:00:00', '01:00:00'),
+('14:00:00', '17:00:00'),
+('18:00:00', '21:00:00');
 
 -- Insertar datos en la tabla Trainers
 INSERT INTO trainers (identificacion, nombres, apellidos, especialidad, sede_id)
 VALUES 
-('2001234567', 'Roberto', 'García', 'Desarrollo Web', 1),
-('2002345678', 'Lucía', 'Fernández', 'Inteligencia Artificial', 1),
+('2001234567', 'jholver', 'pardo', 'Desarrollo Web', 1),
+('2002345678', 'albahad', 'mamad', 'Inteligencia Artificial', 1),
 ('2003456789', 'Andrés', 'Vargas', 'Desarrollo Móvil', 2),
 ('2004567890', 'Carolina', 'Jiménez', 'DevOps', 3),
 ('2005678901', 'Javier', 'Rojas', 'Ciberseguridad', 2);
 
 -- Insertar datos en la tabla Asignaciones de Trainers
-INSERT INTO asignaciones_trainer (trainer_id, ruta_id, area_id, horario_id, salon_id)
+INSERT INTO asignaciones_trainer (trainer_id, ruta_id, area_id, horario_id )
 VALUES 
-(1, 1, 1, 1, 1),
-(1, 2, 1, 2, 2),
-(2, 3, 2, 1, 3),
-(3, 2, 3, 2, 4),
-(4, 4, 4, 3, 5),
-(5, 5, 5, 3, 6);
+( 1, 1, 1, 1),
+( 2, 1, 2, 2),
+( 3, 2, 1, 2),
+( 2, 3, 2, 2),
+( 4, 4, 3, 1),
+( 5, 5, 3, 2);
 
 -- Insertar datos en la tabla Evaluaciones
 INSERT INTO evaluaciones (camper_id, modulo_id, nota_teorica, nota_practica, nota_trabajos, nota_final, fecha_evaluacion)
 VALUES 
-(1, 1, 85.50, 90.00, 88.00, 88.60, '2023-02-15'),
-(1, 2, 90.00, 92.50, 91.00, 91.65, '2023-03-20'),
-(2, 1, 78.50, 80.00, 79.00, 79.35, '2023-02-15'),
-(3, 1, 82.00, 85.50, 84.00, 84.25, '2023-03-01'),
-(4, 1, 88.00, 91.50, 90.00, 90.25, '2023-03-15'),
-(5, 1, 76.50, 79.00, 78.00, 78.05, '2023-02-15'),
-(6, 1, 95.00, 97.50, 96.00, 96.65, '2022-08-01'),
-(7, 1, 68.50, 71.00, 70.00, 70.05, '2022-09-01'),
-(8, 1, 87.00, 89.50, 88.00, 88.65, '2022-10-01'),
-(9, 1, 83.50, 86.00, 85.00, 85.15, '2023-04-01'),
-(10, 1, 91.00, 93.50, 92.00, 92.65, '2023-04-15'),
-(11, 1, 82.50, 87.00, 85.00, 85.45, '2023-05-01'),
-(12, 1, 79.00, 83.50, 81.00, 81.70, '2023-05-01'),
-(13, 1, 88.00, 92.50, 90.00, 90.85, '2023-05-15'),
-(14, 1, 84.50, 89.00, 87.00, 87.45, '2023-05-15'),
-(15, 1, 77.00, 81.50, 79.00, 79.70, '2023-06-01'),
-(16, 1, 90.50, 94.00, 92.00, 92.70, '2023-03-01'),
-(17, 1, 86.00, 90.50, 88.00, 89.00, '2023-03-15'),
-(18, 1, 81.50, 86.00, 83.00, 84.25, '2023-04-01'),
-(19, 1, 78.00, 82.50, 80.00, 80.85, '2023-04-15'),
-(20, 1, 92.50, 96.00, 94.00, 94.70, '2023-05-01'),
-(21, 1, 93.00, 96.50, 94.00, 95.15, '2023-02-15'),
-(21, 2, 91.50, 95.00, 93.00, 93.65, '2023-03-20'),
-(22, 1, 89.00, 92.50, 90.00, 91.15, '2023-02-15'),
-(22, 2, 87.50, 91.00, 89.00, 89.65, '2023-03-20'),
-(23, 1, 85.00, 88.50, 86.00, 87.15, '2023-03-01'),
-(24, 1, 82.50, 86.00, 84.00, 84.70, '2023-03-15'),
-(25, 1, 90.00, 93.50, 91.00, 92.15, '2023-04-01'),
-(26, 1, 86.50, 90.00, 88.00, 88.70, '2023-02-15'),
-(26, 2, 84.00, 87.50, 85.00, 86.15, '2023-03-20'),
-(26, 3, 88.00, 91.50, 89.00, 90.15, '2023-04-25'),
-(27, 1, 90.50, 94.00, 92.00, 92.70, '2023-02-15'),
-(28, 1, 87.00, 90.50, 88.00, 89.15, '2023-03-01'),
-(29, 1, 83.50, 87.00, 85.00, 85.70, '2023-03-15'),
-(30, 1, 93.00, 96.50, 94.00, 95.15, '2023-04-01'),
-(31, 1, 95.00, 98.00, 96.00, 96.90, '2022-02-15'),
-(31, 2, 94.50, 97.50, 95.00, 96.40, '2022-03-20'),
-(31, 3, 93.00, 96.00, 94.00, 94.90, '2022-04-25'),
-(31, 4, 91.50, 94.50, 92.00, 93.35, '2022-05-30'),
-(32, 1, 92.00, 95.00, 93.00, 94.00, '2022-02-15'),
-(33, 1, 91.50, 94.50, 92.00, 93.35, '2022-03-01'),
-(34, 1, 90.00, 93.00, 91.00, 91.80, '2022-03-15'),
-(35, 1, 93.50, 96.50, 94.00, 95.35, '2022-04-01');
+(1, 1, 55.50, 60.00, 58.00, 58.60, '2023-02-15'),
+(1, 2, 60.00, 62.50, 61.00, 61.65, '2023-03-20'),
+(2, 1, 48.50, 50.00, 49.00, 49.35, '2023-02-15'),
+(3, 1, 72.00, 75.50, 74.00, 74.25, '2023-03-01'),
+(4, 1, 68.00, 71.50, 70.00, 70.25, '2023-03-15'),
+(5, 1, 46.50, 49.00, 48.00, 48.05, '2023-02-15'),
+(6, 1, 85.00, 87.50, 86.00, 86.65, '2022-08-01'),
+(7, 1, 38.50, 41.00, 40.00, 40.05, '2022-09-01'),
+(8, 1, 67.00, 69.50, 68.00, 68.65, '2022-10-01'),
+(9, 1, 53.50, 56.00, 55.00, 55.15, '2023-04-01'),
+(10, 1, 61.00, 63.50, 62.00, 62.65, '2023-04-15'),
+(11, 1, 72.50, 77.00, 75.00, 75.45, '2023-05-01'),
+(12, 1, 49.00, 53.50, 51.00, 51.70, '2023-05-01'),
+(13, 1, 58.00, 62.50, 60.00, 60.85, '2023-05-15'),
+(14, 1, 74.50, 79.00, 77.00, 77.45, '2023-05-15'),
+(15, 1, 37.00, 41.50, 39.00, 39.70, '2023-06-01'),
+(16, 1, 80.50, 84.00, 82.00, 82.70, '2023-03-01'),
+(17, 1, 66.00, 70.50, 68.00, 69.00, '2023-03-15'),
+(18, 1, 71.50, 76.00, 73.00, 74.25, '2023-04-01'),
+(19, 1, 48.00, 52.50, 50.00, 50.85, '2023-04-15'),
+(20, 1, 82.50, 86.00, 84.00, 84.70, '2023-05-01'),
+(21, 1, 73.00, 76.50, 74.00, 75.15, '2023-02-15'),
+(21, 2, 61.50, 65.00, 63.00, 63.65, '2023-03-20'),
+(22, 1, 59.00, 62.50, 60.00, 61.15, '2023-02-15'),
+(22, 2, 57.50, 61.00, 59.00, 59.65, '2023-03-20'),
+(23, 1, 65.00, 68.50, 66.00, 67.15, '2023-03-01'),
+(24, 1, 52.50, 56.00, 54.00, 54.70, '2023-03-15'),
+(25, 1, 70.00, 73.50, 71.00, 72.15, '2023-04-01'),
+(26, 1, 76.50, 80.00, 78.00, 78.70, '2023-02-15'),
+(26, 2, 64.00, 67.50, 65.00, 66.15, '2023-03-20'),
+(26, 3, 68.00, 71.50, 69.00, 70.15, '2023-04-25'),
+(27, 1, 50.50, 54.00, 52.00, 52.70, '2023-02-15'),
+(28, 1, 57.00, 60.50, 58.00, 59.15, '2023-03-01'),
+(29, 1, 63.50, 67.00, 65.00, 65.70, '2023-03-15'),
+(30, 1, 73.00, 76.50, 74.00, 75.15, '2023-04-01'),
+(31, 1, 85.00, 88.00, 86.00, 86.90, '2022-02-15'),
+(31, 2, 84.50, 87.50, 85.00, 86.40, '2022-03-20'),
+(31, 3, 73.00, 76.00, 74.00, 74.90, '2022-04-25'),
+(31, 4, 61.50, 64.50, 62.00, 63.35, '2022-05-30'),
+(32, 1, 72.00, 75.00, 73.00, 74.00, '2022-02-15'),
+(33, 1, 71.50, 74.50, 72.00, 73.35, '2022-03-01'),
+(34, 1, 70.00, 73.00, 71.00, 71.80, '2022-03-15'),
+(35, 1, 63.50, 66.50, 64.00, 65.35, '2022-04-01'), 
+(36, 1, 45.00, 48.00, 46.00, 46.80, '2022-05-01'),
+(37, 1, 38.50, 41.50, 39.00, 39.70, '2022-05-15'),
+(38, 1, 55.00, 58.00, 56.00, 56.80, '2022-06-01'),
+(39, 1, 62.50, 65.50, 63.00, 64.35, '2022-06-15');
+
+
 
 -- Insertar datos en la tabla Matrículas
 INSERT INTO matriculas (camper_id, ruta_id, fecha_inicio, fecha_fin, estado)
@@ -397,13 +429,8 @@ VALUES
 (36, 1, '2022-04-01', '2022-06-15', 'Cancelada'),
 (37, 3, '2022-04-15', '2022-06-01', 'Cancelada'),
 (38, 2, '2022-05-01', '2022-07-10', 'Cancelada'),
-(39, 4, '2022-05-15', '2022-07-20', 'Cancelada'),
-(40, 5, '2022-06-01', '2022-08-15', 'Cancelada'),
-(41, 1, '2022-03-01', '2022-05-15', 'Cancelada'),
-(42, 3, '2022-03-15', '2022-05-01', 'Cancelada'),
-(43, 2, '2022-04-01', '2022-06-10', 'Cancelada'),
-(44, 4, '2022-04-15', '2022-06-20', 'Cancelada'),
-(45, 5, '2022-05-01', '2022-07-15', 'Cancelada');
+(39, 4, '2022-05-15', '2022-07-20', 'Cancelada');
+
 
 -- Insertar datos en la tabla Relación Trainers-Tecnologías
 INSERT INTO trainer_tecnologia (trainer_id, tecnologia_id, nivel_experiencia)
@@ -437,10 +464,3 @@ VALUES
 (10, 40.00, 50.00, 10.00);
 
 
-INSERT INTO campers (identificacion, nombres, apellidos, direccion, acudiente, estado_id, nivel_riesgo_id, sede_id)
-VALUES 
-('1046789012', 'Elena', 'Suárez', 'Calle 90 #30-20', 'Luis Suárez', 3, 1, 1),
-('1047890123', 'Martín', 'López', 'Carrera 15 #50-80', 'Clara López', 3, 1, 1),
-('1048901234', 'Raúl', 'Fernández', 'Diagonal 60 #22-33', 'Esteban Fernández', 3, 1, 1),
-('1049012345', 'Lucía', 'Ramírez', 'Av. 18 #40-70', 'Patricia Ramírez', 3, 1, 2),
-('1050123456', 'Eduardo', 'González', 'Carrera 80 #10-90', 'Fernando González', 3, 1, 1);

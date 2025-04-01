@@ -43,6 +43,21 @@ CREATE TABLE niveles_riesgo (
     nivel VARCHAR(20) NOT NULL
 );
 
+-- tabla acuediente
+CREATE TABLE acudiente (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombres VARCHAR(50) NOT NULL,
+    apellidos VARCHAR(50) NOT NULL,
+    telefono VARCHAR(15) NOT NULL
+);
+
+-- tabla tipo documento
+CREATE TABLE tipo_documento (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    tipo ENUM('Cédula de Ciudadanía', 'Tarjeta de Identidad', 'Cédula de Extranjería') NOT NULL
+);
+
+
 -- Tabla Campers
 CREATE TABLE campers (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -50,14 +65,18 @@ CREATE TABLE campers (
     nombres VARCHAR(50) NOT NULL,
     apellidos VARCHAR(50) NOT NULL,
     direccion VARCHAR(100) NOT NULL,
-    acudiente VARCHAR(100) NOT NULL,
+    acudiente_id INT,
     estado_id INT,
     nivel_riesgo_id INT,
     sede_id INT,
+    tipo_documento_id INT,
     FOREIGN KEY (estado_id) REFERENCES estados(id),
     FOREIGN KEY (nivel_riesgo_id) REFERENCES niveles_riesgo(id),
-    FOREIGN KEY (sede_id) REFERENCES sedes(id)
+    FOREIGN KEY (sede_id) REFERENCES sedes(id),
+    FOREIGN KEY (acudiente_id) REFERENCES acudiente(id),
+    FOREIGN KEY (tipo_documento_id) REFERENCES tipo_documento(id)
 );
+
 
 -- Tabla de Teléfonos de Campers
 CREATE TABLE telefono_camper (
@@ -68,12 +87,12 @@ CREATE TABLE telefono_camper (
     FOREIGN KEY (camper_id) REFERENCES campers(id)
 );
 
--- Tabla de Áreas de Entrenamiento
-CREATE TABLE areas_entrenamiento (
+-- Tabla de area(salones)
+CREATE TABLE area (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(50) NOT NULL,
-    capacidad_maxima INT DEFAULT 33,
     sede_id INT,
+    capacidad INT DEFAULT 33,
     FOREIGN KEY (sede_id) REFERENCES sedes(id)
 );
 
@@ -85,7 +104,7 @@ CREATE TABLE camper_area (
     fecha_inicio DATE NOT NULL,
     fecha_fin DATE,
     FOREIGN KEY (camper_id) REFERENCES campers(id),
-    FOREIGN KEY (area_id) REFERENCES areas_entrenamiento(id)
+    FOREIGN KEY (area_id) REFERENCES area(id)
 );
 
 -- Tabla de Módulos
@@ -131,14 +150,7 @@ CREATE TABLE modulo_tecnologia (
 
 
 
--- Tabla de Salones
-CREATE TABLE salones (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(50) NOT NULL,
-    area_id INT,
-    capacidad INT DEFAULT 33,
-    FOREIGN KEY (area_id) REFERENCES areas_entrenamiento(id)
-);
+
 
 -- Tabla de Horarios
 CREATE TABLE horarios (
@@ -165,12 +177,11 @@ CREATE TABLE asignaciones_trainer (
     ruta_id INT,
     area_id INT,
     horario_id INT,
-    salon_id INT,
     FOREIGN KEY (trainer_id) REFERENCES trainers(id),
     FOREIGN KEY (ruta_id) REFERENCES rutas(id),
-    FOREIGN KEY (area_id) REFERENCES areas_entrenamiento(id),
-    FOREIGN KEY (horario_id) REFERENCES horarios(id),
-    FOREIGN KEY (salon_id) REFERENCES salones(id)
+    FOREIGN KEY (area_id) REFERENCES area(id),
+    FOREIGN KEY (horario_id) REFERENCES horarios(id)
+
 );
 
 -- Tabla de Evaluaciones

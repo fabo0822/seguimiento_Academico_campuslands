@@ -53,15 +53,13 @@ GROUP BY c.id, c.identificacion, c.nombres, c.apellidos
 HAVING COUNT(t.id) > 1;
 
 -- 9. Listar los campers y sus respectivos acudientes y teléfonos
-SELECT 
-    c.identificacion, 
-    c.nombres, 
-    c.apellidos, 
-    c.acudiente,
-    GROUP_CONCAT(t.telefono) as telefonos
+SELECT  c.nombres, c.apellidos, t.telefono, ac.nombres as nombre
 FROM campers c
 LEFT JOIN telefono_camper t ON c.id = t.camper_id
-GROUP BY c.id, c.identificacion, c.nombres, c.apellidos, c.acudiente;
+INNER JOIN acudiente ac ON c.acudiente_id = ac.id;
+
+
+
 
 --revisar informacion  y corregir
 -- 10. Mostrar campers que aún no han sido asignados a una ruta
