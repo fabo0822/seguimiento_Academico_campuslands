@@ -38,7 +38,7 @@ Los demás archivos contienen consultas y objetos de base de datos que se pueden
 
 - **Consultas**: Puedes ejecutar cualquier consulta SQL directamente en MySQL Workbench. Por ejemplo:
    ```sql
-   SELECT * FROM productos;  -- Obtiene todos los productos disponibles
+   SELECT id, nombre, descripcion FROM modulos;
    ```
 
 - **Procedimientos Almacenados**: Para ejecutar un procedimiento almacenado, usa la siguiente sintaxis:
@@ -56,8 +56,6 @@ Los demás archivos contienen consultas y objetos de base de datos que se pueden
 ### 6. Verificación
 Después de ejecutar los scripts, verifica que las tablas se hayan creado correctamente y que los datos se hayan insertado. Puedes hacer esto ejecutando consultas simples para contar registros o seleccionar datos de las tablas.
 
-```sql
-SELECT COUNT(*) FROM productos;  -- Verifica cuántos productos se han insertado
 ```
 
 ### 7. Solución de Problemas
@@ -83,7 +81,7 @@ Si necesitas más ayuda, consulta la documentación de MySQL o contacta a un adm
 ## Ejemplos de Consultas
 - **Consulta básica**: Obtener todos los campers matriculados.
    ```sql
-   SELECT id, nombre, apellido FROM campers;  -- Selecciona columnas específicas
+   SELECT id, nombres, apellidos FROM campers;  -- Selecciona columnas específicas
    ```
 
 - **Consulta avanzada**: Obtener el historial de pedidos de un camper específico.
