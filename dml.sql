@@ -1,7 +1,7 @@
 -- Insertar datos en la tabla Empresa
 INSERT INTO empresa (nombre, nit, direccion_principal, telefono, email, sitio_web, fecha_fundacion)
 VALUES 
-('CampusLands', '900123456-7', 'Av. Siempre Viva 123', '5551234567', 'info@campuslands.com', 'www.campuslands.com', '2018-01-15');
+('CampusLands', '900123456-7', 'km 4 anillo vial', '5551234567', 'info@campuslands.com', 'www.campuslands.com', '2018-01-15');
 
 
 -- Insertar datos en la tabla Estados
@@ -39,92 +39,132 @@ VALUES
 ('Medio'),
 ('Alto');
 
--- Insertar datos en la tabla Campers
-INSERT INTO campers (identificacion, nombres, apellidos, direccion, estado_id, nivel_riesgo_id, sede_id)
-VALUES 
-('1001234567', 'Juan', 'Pérez', 'Calle 10 #23-45', 4, 1, 1),
-('1002345678', 'Ana', 'Gómez', 'Av. 5 #12-34', 3, 1, 1),
-('1003456789', 'Pedro', 'Rodríguez', 'Carrera 15 #45-67', 1, 2, 2),
-('1004567890', 'Sofía', 'Martínez', 'Calle 20 #56-78', 2, 1, 2),
-('1005678901', 'Carlos', 'López', 'Av. 30 #67-89', 4, 2, 1),
-('1006789012', 'Valentina', 'Sánchez', 'Diagonal 25 #12-34', 5, 1, 3),
-('1007890123', 'Diego', 'Torres', 'Carrera 40 #23-45', 6, 3, 3),
-('1008901234', 'Isabella', 'Ramírez', 'Calle 50 #34-56', 7, 2, 1),
-('1009012345', 'Alejandro', 'Hernández', 'Av. 60 #45-67', 4, 1, 2),
-('1010123456', 'Camila', 'Díaz', 'Carrera 70 #56-78', 4, 2, 3),
-('1011234567', 'Mateo', 'García', 'Calle 80 #67-89', 4, 1, 1),
-('1012345678', 'María', 'Martínez', 'Diagonal 90 #12-34', 4, 2, 2),
-('1013456789', 'Julián', 'López', 'Carrera 100 #23-45', 4, 1, 3),
-('1014567890', 'Valeria', 'Sánchez', 'Av. 110 #34-56', 4, 2, 1),
-('1015678901', 'Santiago', 'Torres', 'Calle 120 #45-67', 4, 1, 2),
-('1016789012', 'Luciana', 'Ramírez', 'Carrera 130 #56-78', 4, 2, 3),
-('1017890123', 'Emiliano', 'Hernández', 'Av. 140 #67-89', 4, 1, 1),
-('1018901234', 'Antonella', 'Díaz', 'Diagonal 150 #12-34', 4, 2, 2),
-('1019012345', 'Emilio', 'García', 'Carrera 160 #23-45', 4, 1, 3),
-('1020123456', 'Mariana', 'Martínez', 'Av. 170 #34-56', 4, 2, 1),
-('1021234567', 'Benjamín', 'López', 'Calle 180 #45-67', 4, 1, 2),
-('1022345678', 'Isidora', 'Sánchez', 'Carrera 190 #56-78', 4, 2, 3),
-('1023456789', 'Emiliano', 'Torres', 'Av. 200 #67-89', 4, 1, 1),
-('1024567890', 'Antonella', 'Ramírez', 'Diagonal 210 #12-34', 4, 2, 2),
-('1025678901', 'Emilio', 'Hernández', 'Carrera 220 #12-36' , 4, 2, 2),
-('1026789012', 'Mariana', 'Díaz', 'Av. 230 #34-56', 4, 2, 1),
-('1027890123', 'Benjamín', 'García', 'Calle 240 #45-67', 4, 1, 2),
-('1028901234', 'Isidora', 'Martínez', 'Carrera 250 #56-78', 4, 2, 3),
-('1029012345', 'Emiliano', 'López', 'Av. 260 #67-89', 4, 1, 1),
-('1030123456', 'Antonella', 'Sánchez', 'Diagonal 270 #12-34', 4, 2, 2),
-('1031234567', 'Emilio', 'Torres', 'Carrera 280 #23-45', 4, 1, 3),
-('1032345678', 'Mariana', 'Ramírez', 'Av. 290 #34-56', 4, 2, 1),
-('1033456789', 'Benjamín', 'Hernández', 'Calle 300 #45-67', 4, 1, 2),
-('1034567890', 'Isidora', 'Díaz', 'Carrera 310 #56-78', 4, 2, 3),
-('1035678901', 'Emiliano', 'García', 'Av. 320 #67-89', 4, 1, 1),
-('1036789012', 'Antonella', 'Martínez', 'Diagonal 330 #12-34', 4, 2, 2),
-('1037890123', 'Emilio', 'López', 'Carrera 340 #23-45', 4, 1, 3),
-('1038901234', 'Mariana', 'Sánchez', 'Av. 350 #34-56', 4, 2, 1),
-('1039012345', 'Benjamín', 'Torres', 'Calle 360 #45-67', 4, 1, 2);
-
-
-
 -- insertar datos acudiente
 INSERT INTO acudiente (nombres, apellidos, telefono) VALUES
-('Juan', 'Pérez', '3001234567'),
-('Ana', 'Gómez', '3101234567'),
-('Pedro', 'Rodríguez', '3002345678'),
-('Sofía', 'Martínez', '3003456789'),
-('Carlos', 'López', '3004567890'),
-('Valentina', 'Sánchez', '3005678901'),
-('Diego', 'Torres', '3006789012'),
-('Isabella', 'Ramírez', '3007890123'),
-('Alejandro', 'Hernández', '3008901234'),
-('Camila', 'Díaz', '3009012345'),
-('Mateo', 'García', '3010123456'),
-('María', 'Martínez', '3011234567'),
-('Julián', 'López', '3012345678'),
-('Valeria', 'Sánchez', '3013456789'),
-('Santiago', 'Torres', '3014567890'),
-('Luciana', 'Ramírez', '3015678901'),
-('Emiliano', 'Hernández', '3016789012'),
-('Antonella', 'Díaz', '3017890123'),
-('Emilio', 'García', '3018901234'),
-('Mariana', 'Martínez', '3019012345'),
-('Benjamín', 'López', '3020123456'),
-('Isidora', 'Sánchez', '3021234567'),
-('Emiliano', 'Torres', '3022345678'),
-('Antonella', 'Ramírez', '3023456789'),
-('Emilio', 'Hernández', '3024567890'),
-('Mariana', 'Díaz', '3025678901'),
-('Benjamín', 'García', '3026789012'),
-('Isidora', 'Martínez', '3027890123'),
-('Emiliano', 'López', '3028901234'),
-('Antonella', 'Sánchez', '3029012345'),
-('Emilio', 'Torres', '3030123456'),
-('Mariana', 'Ramírez', '3031234567'),
-('Benjamín', 'Hernández', '3032345678'),
-('Isidora', 'Díaz', '3033456789'),
-('Emiliano', 'García', '3034567890'),
-('Antonella', 'Martínez', '3035678901'),
-('Emilio', 'López', '3036789012'),
-('Mariana', 'Sánchez', '3037890123'),
-('Benjamín', 'Torres', '3038901234');
+('Juan', 'Pérez', '3001111111'),
+('Ana', 'Gómez', '3002222222'),
+('Pedro', 'Rodríguez', '3003333333'),
+('Sofía', 'Martínez', '3004444444'),
+('Carlos', 'López', '3005555555'),
+('Valentina', 'Sánchez', '3006666666'),
+('Diego', 'Torres', '3007777777'),
+('Isabella', 'Ramírez', '3008888888'),
+('Alejandro', 'Hernández', '3009999999'),
+('Camila', 'Díaz', '3010000000'),
+('Mateo', 'García', '3011111111'),
+('María', 'Martínez', '3012222222'),
+('Julián', 'López', '3013333333'),
+('Valeria', 'Sánchez', '3014444444'),
+('Santiago', 'Torres', '3015555555'),
+('Luciana', 'Ramírez', '3016666666'),
+('Emiliano', 'Hernández', '3017777777'),
+('Antonella', 'Díaz', '3018888888'),
+('Emilio', 'García', '3019999999'),
+('Mariana', 'Martínez', '3020000000'),
+('Benjamín', 'López', '3021111111'),
+('Isidora', 'Sánchez', '3022222222'),
+('Emiliano', 'Torres', '3023333333'),
+('Antonella', 'Ramírez', '3024444444'),
+('Emilio', 'Hernández', '3025555555'),
+('Mariana', 'Díaz', '3026666666'),
+('Benjamín', 'García', '3027777777'),
+('Isidora', 'Martínez', '3028888888'),
+('Emiliano', 'López', '3029999999'),
+('Antonella', 'Sánchez', '3030000000'),
+('Emilio', 'Torres', '3031111111'),
+('Mariana', 'Ramírez', '3032222222'),
+('Benjamín', 'Hernández', '3033333333'),
+('Isidora', 'Díaz', '3034444444'),
+('Emiliano', 'García', '3035555555'),
+('Antonella', 'Martínez', '3036666666'),
+('Emilio', 'López', '3037777777'),
+('Mariana', 'Sánchez', '3038888888'),
+('Benjamín', 'Torres', '3039999999'),
+('Carlos', 'Fernández', '3105678901'),
+('Laura', 'Rojas', '3126789012'),
+('Andrés', 'Gómez', '3157890123'),
+('Patricia', 'López', '3188901234'),
+('Ricardo', 'Torres', '3209012345'),
+('Fernando', 'Martínez', '3210123456'),
+('Gabriela', 'Sánchez', '3221234567'),
+('Hugo', 'Pérez', '3232345678'),
+('Inés', 'García', '3243456789'),
+('Jorge', 'Hernández', '3254567890'),
+('Karla', 'Ramírez', '3265678901'),
+('Luis', 'Torres', '3276789012'),
+('Marta', 'Díaz', '3287890123'),
+('Nicolás', 'López', '3298901234'),
+('Olga', 'Gómez', '3309012345'),
+('Pablo', 'Rodríguez', '3310123456'),
+('Quintín', 'Sánchez', '3321234567'),
+('Rosa', 'Martínez', '3332345678'),
+('Samuel', 'Hernández', '3343456789'),
+('Teresa', 'García', '3354567890'),
+('Ulises', 'Pérez', '3365678901'),
+('Verónica', 'Torres', '3376789012'),
+('Walter', 'Ramírez', '3387890123'),
+('Ximena', 'Díaz', '3398901234'),
+('Yolanda', 'López', '3409012345'),
+('Zacarías', 'Gómez', '3410123456');
+
+-- Insertar datos en la tabla Campers
+INSERT INTO campers (identificacion, nombres, apellidos, direccion, estado_id, nivel_riesgo_id, sede_id, acudiente_id)
+VALUES 
+('1001234567', 'Juan', 'Pérez', 'Calle 10 #23-45', 2, 1, 1, 1),
+('1002345678', 'Ana', 'Gómez', 'Av. 5 #12-34', 2, 3, 1, 2),
+('1003456789', 'Pedro', 'Rodríguez', 'Carrera 15 #45-67', 1, 2, 2, 3),
+('1004567890', 'Sofía', 'Martínez', 'Calle 20 #56-78', 2, 1, 2, 4),
+('1005678901', 'Carlos', 'López', 'Av. 30 #67-89', 4, 3, 1, 5),
+('1006789012', 'Valentina', 'Sánchez', 'Diagonal 25 #12-34', 5, 1, 3, 6),
+('1007890123', 'Diego', 'Torres', 'Carrera 40 #23-45', 6, 3, 3, 7),
+('1008901234', 'Isabella', 'Ramírez', 'Calle 50 #34-56', 2, 2, 1, 8),
+('1009012345', 'Alejandro', 'Hernández', 'Av. 60 #45-67', 4, 3, 2, 9),
+('1010123456', 'Camila', 'Díaz', 'Carrera 70 #56-78', 4, 2, 3, 10),
+('1011234567', 'Mateo', 'García', 'Calle 80 #67-89', 1, 3, 1, 11),
+('1012345678', 'María', 'Martínez', 'Diagonal 90 #12-34', 3, 3, 2, 12),
+('1013456789', 'Julián', 'López', 'Carrera 100 #23-45', 3, 1, 3, 13),
+('1014567890', 'Valeria', 'Sánchez', 'Av. 110 #34-56', 4, 2, 1, 14),
+('1015678901', 'Santiago', 'Torres', 'Calle 120 #45-67', 2, 3, 2, 15),
+('1016789012', 'Luciana', 'Ramírez', 'Carrera 130 #56-78', 4, 2, 3, 16),
+('1017890123', 'Emiliano', 'Hernández', 'Av. 140 #67-89', 2, 1, 1, 17),
+('1018901234', 'Antonella', 'Díaz', 'Diagonal 150 #12-34', 4, 2, 2, 18),
+('1019012345', 'Emilio', 'García', 'Carrera 160 #23-45', 2, 3, 3, 19),
+('1020123456', 'Mariana', 'Martínez', 'Av. 170 #34-56', 3, 2, 1, 20),
+('1021234567', 'Benjamín', 'López', 'Calle 180 #45-67', 5, 1, 2, 21),
+('1022345678', 'Isidora', 'Sánchez', 'Carrera 190 #56-78', 5, 3, 3, 22),
+('1023456789', 'Emiliano', 'Torres', 'Av. 200 #67-89', 5, 1, 1, 23),
+('1024567890', 'Antonella', 'Ramírez', 'Diagonal 210 #12-34', 6, 2, 2, 24),
+('1025678901', 'Emilio', 'Hernández', 'Carrera 220 #12-36' , 6, 2, 2, 25),
+('1026789012', 'Mariana', 'Díaz', 'Av. 230 #34-56', 4, 2, 1, 26),
+('1027890123', 'Benjamín', 'García', 'Calle 240 #45-67', 4, 1, 2, 27),
+('1028901234', 'Isidora', 'Martínez', 'Carrera 250 #56-78', 6, 2, 3, 28),
+('1029012345', 'Emiliano', 'López', 'Av. 260 #67-89', 7, 1, 1, 29),
+('1030123456', 'Antonella', 'Sánchez', 'Diagonal 270 #12-34', 4, 2, 2, 30),
+('1031234567', 'Emilio', 'Torres', 'Carrera 280 #23-45', 3, 1, 3, 31),
+('1032345678', 'Mariana', 'Ramírez', 'Av. 290 #34-56', 5, 2, 1, 32),
+('1033456789', 'Benjamín', 'Hernández', 'Calle 300 #45-67', 4, 1, 2, 33),
+('1034567890', 'Isidora', 'Díaz', 'Carrera 310 #56-78', 2, 2, 3, 34),
+('1035678901', 'Emiliano', 'García', 'Av. 320 #67-89', 4, 1, 1, 35),
+('1036789012', 'Antonella', 'Martínez', 'Diagonal 330 #12-34', 4, 2, 2, 36),
+('1037890123', 'Emilio', 'López', 'Carrera 340 #23-45', 1, 1, 3, 37),
+('1038901234', 'Mariana', 'Sánchez', 'Av. 350 #34-56', 7, 2, 1, 38),
+('1039012345', 'Benjamín', 'Torres', 'Calle 360 #45-67', 1, 1, 2, 39),
+('1045678901', 'Lucas', 'Fernández', 'Calle 45 #10-20', 1, 1, 1,  40),
+('1046789012', 'Samantha', 'Rojas', 'Carrera 12 #34-56', 1, 1, 2,  41),
+('1047890123', 'Martín', 'Gómez', 'Av. Principal #78-90', 1, 1, 3,  42),
+('1048901234', 'Gabriela', 'López', 'Diagonal 25 #12-34', 1, 1, 1,  43),
+('1049012345', 'Joaquín', 'Torres', 'Calle 30 #45-67', 1, 1, 2,  44),
+('1050123456', 'Natalia', 'Cruz', 'Calle 50 #10-20', 1, 1, 1,  45),
+('1051234567', 'Fernando', 'Salazar', 'Calle 60 #20-30', 1, 1, 2,  46),
+('1052345678', 'Patricia', 'Mendoza', 'Calle 70 #30-40', 1, 1, 3,  47),
+('1053456789', 'Ricardo', 'Pérez', 'Calle 80 #40-50', 1, 1, 1,  48),
+('1054567890', 'Cecilia', 'González', 'Calle 90 #50-60', 1, 1, 2,  49),
+('1055678901', 'Hugo', 'Alvarez', 'Calle 100 #60-70', 1, 1, 3,  50);
+
+
+
+
+
 
 -- Insertar datos en la tabla Teléfonos de Campers
 INSERT INTO telefono_camper (camper_id, telefono, tipo_telefono)
@@ -159,17 +199,28 @@ VALUES
 (26, '3026789012', 'Principal'),
 (27, '3027890123', 'Principal'),
 (28, '3028901234', 'Principal'),
-(29, '3029012345', 'Principal'),
-(30, '3030123456', 'Principal'),
-(31, '3031234567', 'Principal'),
-(32, '3032345678', 'Principal'),
-(33, '3033456789', 'Principal'),
-(34, '3034567890', 'Principal'),
-(35, '3035678901', 'Principal'),
-(36, '3036789012', 'Principal'),
-(37, '3037890123', 'Principal'),
-(38, '3038901234', 'Principal'),
-(39, '3039012345', 'Principal');
+(29, '3030123456', 'Principal'),
+(30, '3031234567', 'Principal'),
+(31, '3032345678', 'Principal'),
+(32, '3033456789', 'Principal'),
+(33, '3034567890', 'Principal'),
+(34, '3035678901', 'Principal'),
+(35, '3036789012', 'Principal'),
+(36, '3037890123', 'Principal'),
+(37, '3038901234', 'Principal'),
+(38, '3039012345', 'Principal'),
+(39, '3040123456', 'Principal'),
+(40, '3041234567', 'Principal'),
+(41, '3042345678', 'Principal'),
+(42, '3043456789', 'Principal'),
+(43, '3044567890', 'Principal'),
+(44, '3045678901', 'Principal'),
+(45, '3046789012', 'Principal'),
+(46, '3047890123', 'Principal'),
+(47, '3048901234', 'Principal'),
+(48, '3049012345', 'Principal'),
+(49, '3050123456', 'Principal'),
+(50, '3051234567', 'Principal');
 
 -- Insertar datos en la tabla Salones
 INSERT INTO area (nombre, sede_id, capacidad)
@@ -177,57 +228,69 @@ VALUES
 ('apolo', 1, 33),
 ('artemis', 1, 33),
 ('sputnik', 1, 33),
-('apolo', 2, 33),
-('artemis', 2, 33),
-('sputnik', 2, 33),
-('apolo', 3, 33),
-('artemis', 3, 33),
-('sputnik', 3, 33);
+('apolo2', 2, 33),
+('artemis2', 2, 33),
+('sputnik2', 2, 33),
+('apolo3', 3, 33),
+('artemis3', 3, 33),
+('sputnik3', 3, 33);
 
 
 
 -- Insertar datos en la tabla Camper por Área
 INSERT INTO camper_area (camper_id, area_id, fecha_inicio, fecha_fin)
 VALUES 
-(1, 1, '2023-01-15', '2023-06-15'),
-(2, 1, '2023-01-15', NULL),
-(3, 2, '2023-02-01', NULL),
-(4, 3, '2023-02-15', NULL),
-(5, 1, '2023-01-15', '2023-06-15'),
-(6, 2, '2022-07-01', '2022-12-20'),
-(7, 3, '2022-08-01', '2023-01-10'),
-(8, 2, '2022-09-01', '2023-02-01'),
-(9, 3, '2023-03-01', NULL),
-(10, 3, '2023-03-15', NULL),
-(11, 1, '2023-04-01', NULL),
-(12, 2, '2023-04-01', NULL),
-(13, 3, '2023-04-15', NULL),
-(14, 2, '2023-04-15', NULL),
-(15, 3, '2023-05-01', NULL),
-(16, 1, '2023-02-01', NULL),
-(17, 2, '2023-02-15', NULL),
-(18, 3, '2023-03-01', NULL),
-(19, 3, '2023-03-15', NULL),
-(20, 3, '2023-04-01', NULL),
-(21, 1, '2023-01-15', '2023-06-15'),
-(22, 2, '2023-01-15', '2023-06-15'),
-(23, 3, '2023-02-01', '2023-07-01'),
-(24, 3, '2023-02-15', '2023-07-15'),
-(25, 3, '2023-03-01', '2023-08-01'),
-(26, 1, '2023-01-15', NULL),
-(27, 2, '2023-01-15', NULL),
-(28, 3, '2023-02-01', NULL),
-(29, 3, '2023-02-15', NULL),
-(30, 3, '2023-03-01', NULL),
-(31, 1, '2022-01-15', '2022-06-15'),
-(32, 2, '2022-01-15', '2022-06-15'),
-(33, 3, '2022-02-01', '2022-07-01'),
-(34, 3, '2022-02-15', '2022-07-15'),
-(35, 3, '2022-03-01', '2022-08-01'),
-(36, 1, '2022-04-01', '2022-06-15'),
-(37, 2, '2022-04-15', '2022-06-01'),
-(38, 3, '2022-05-01', '2022-07-10'),
-(39, 3, '2022-05-15', '2022-07-20');
+(1, 1, '2023-01-01', '2023-11-01'),
+(2, 1, '2023-01-01', NULL),
+(3, 1, '2023-01-01', '2023-11-01'),
+(4, 1, '2023-01-01', NULL),
+(5, 1, '2023-01-01', '2023-11-01'),
+(6, 1, '2023-01-01', '2023-11-01'),
+(7, 1, '2023-01-01', NULL),
+(8, 1, '2023-01-01', '2023-11-01'),
+(9, 1, '2023-01-01', NULL),
+(10, 1, '2023-01-01', '2023-11-01'),
+(11, 1, '2023-01-01', '2023-11-01'),
+(12, 1, '2023-01-01', NULL),
+(13, 1, '2023-01-01', '2023-11-01'),
+(14, 1, '2023-01-01', NULL),
+(15, 1, '2023-01-01', '2023-11-01'),
+(16, 1, '2023-01-01', '2023-11-01'),
+(17, 1, '2023-01-01', NULL),
+(18, 1, '2023-01-01', '2023-11-01'),
+(19, 1, '2023-01-01', NULL),
+(20, 1, '2023-01-01', '2023-11-01'),
+(21, 1, '2023-01-01', '2023-11-01'),
+(22, 1, '2023-01-01', NULL),
+(23, 1, '2023-01-01', '2023-11-01'),
+(24, 1, '2023-01-01', NULL),
+(25, 1, '2023-01-01', '2023-11-01'),
+(26, 1, '2023-01-01', '2023-11-01'),
+(27, 1, '2023-01-01', NULL),
+(28, 1, '2023-01-01', '2023-11-01'),
+(29, 1, '2023-01-01', NULL),
+(30, 1, '2023-01-01', '2023-11-01'),
+(31, 1, '2023-01-01', '2023-11-01'),
+(32, 1, '2023-01-01', NULL),
+(33, 1, '2023-01-01', '2023-11-01'),
+(34, 2, '2023-01-01', NULL),
+(35, 2, '2023-01-01', '2023-11-01'),
+(36, 2, '2023-01-01', '2023-11-01'),
+(37, 3, '2023-01-01', NULL),
+(38, 3, '2023-01-01', '2023-11-01'),
+(39, 4, '2023-01-01', NULL),
+(40, 4, '2023-01-01', '2023-11-01'),
+(41, 5, '2023-01-01', '2023-11-01'),
+(42, 5, '2023-01-01', NULL),
+(43, 6, '2023-01-01', '2023-11-01'),
+(44, 6, '2023-01-01', NULL),
+(45, 7, '2023-01-01', '2023-11-01'),
+(46, 7, '2023-01-01', '2023-11-01'),
+(47, 8, '2023-01-01', NULL),
+(48, 8, '2023-01-01', '2023-11-01'),
+(49, 9, '2023-01-01', NULL),
+(50, 9, '2023-01-01', '2023-11-01');
+
 
 
 -- Insertar datos en la tabla Módulos
@@ -326,14 +389,16 @@ VALUES
 ('2005678901', 'Javier', 'Rojas', 'Ciberseguridad', 2);
 
 -- Insertar datos en la tabla Asignaciones de Trainers
-INSERT INTO asignaciones_trainer (trainer_id, ruta_id, area_id, horario_id )
+INSERT INTO asignaciones_trainer (trainer_id, ruta_id, area_id, horario_id)
 VALUES 
-( 1, 1, 1, 1),
-( 2, 1, 2, 2),
-( 3, 2, 1, 2),
-( 2, 3, 2, 2),
-( 4, 4, 3, 1),
-( 5, 5, 3, 2);
+(1, 1, 1, 1),
+(1, 2, 1, 2),
+(2, 1, 2, 1),
+(2, 3, 2, 2),
+(3, 2, 1, 1),
+(3, 3, 1, 2),
+(4, 4, 3, 1),
+(5, 5, 3, 2);
 
 -- Insertar datos en la tabla Evaluaciones
 INSERT INTO evaluaciones (camper_id, modulo_id, nota_teorica, nota_practica, nota_trabajos, nota_final, fecha_evaluacion)
@@ -462,5 +527,111 @@ VALUES
 (8, 30.00, 60.00, 10.00),
 (9, 40.00, 50.00, 10.00),
 (10, 40.00, 50.00, 10.00);
+
+-- Insertar datos en la tabla campers_estados
+INSERT INTO campers_estados (camper_id, estado_id, fecha_cambio)
+VALUES 
+(1, 1, '2023-01-01'),  -- En proceso de ingreso
+(1, 2, '2023-02-01'),  -- Inscrito
+(1, 3, '2023-03-01'),  -- Aprobado
+(2, 1, '2023-01-01'),  -- En proceso de ingreso
+(2, 2, '2023-09-20'),  -- Inscrito (actualizado)
+(3, 1, '2023-01-01'),  -- En proceso de ingreso
+(3, 2, '2023-10-05'),  -- Inscrito (actualizado)
+(3, 3, '2023-03-01'),  -- Aprobado
+(4, 1, '2023-01-01'),  -- En proceso de ingreso
+(4, 2, '2023-10-10'),  -- Inscrito (actualizado)
+(5, 1, '2023-01-01'),  -- En proceso de ingreso
+(5, 2, '2023-09-15'),  -- Inscrito (actualizado)
+(6, 1, '2023-01-01'),  -- En proceso de ingreso
+(6, 2, '2023-10-01'),  -- Inscrito (actualizado)
+(7, 1, '2023-01-01'),  -- En proceso de ingreso
+(7, 2, '2023-10-12'),  -- Inscrito (actualizado)
+(8, 1, '2023-01-01'),  -- En proceso de ingreso
+(8, 2, '2023-09-30'),  -- Inscrito (actualizado)
+(9, 1, '2023-01-01'),  -- En proceso de ingreso
+(9, 2, '2023-10-02'),  -- Inscrito (actualizado)
+(10, 1, '2023-01-01'), -- En proceso de ingreso
+(10, 2, '2023-10-03'), -- Inscrito (actualizado)
+(11, 1, '2023-01-01'), -- En proceso de ingreso
+(11, 2, '2023-10-04'), -- Inscrito (actualizado)
+(12, 1, '2023-01-01'), -- En proceso de ingreso
+(12, 2, '2023-10-06'), -- Inscrito (actualizado)
+(13, 1, '2023-01-01'), -- En proceso de ingreso
+(13, 2, '2023-10-07'), -- Inscrito (actualizado)
+(14, 1, '2023-01-01'), -- En proceso de ingreso
+(14, 2, '2023-10-08'), -- Inscrito (actualizado)
+(15, 1, '2023-01-01'), -- En proceso de ingreso
+(15, 2, '2023-10-09'), -- Inscrito (actualizado)
+(16, 1, '2023-01-01'), -- En proceso de ingreso
+(16, 2, '2023-10-11'), -- Inscrito (actualizado)
+(17, 1, '2023-01-01'), -- En proceso de ingreso
+(17, 2, '2023-10-13'), -- Inscrito (actualizado)
+(18, 1, '2023-01-01'), -- En proceso de ingreso
+(18, 2, '2023-10-14'), -- Inscrito (actualizado)
+(19, 1, '2023-01-01'), -- En proceso de ingreso
+(19, 2, '2023-10-15'), -- Inscrito (actualizado)
+(20, 1, '2023-01-01'), -- En proceso de ingreso
+(20, 2, '2023-10-15'), -- Inscrito (actualizado)
+(21, 1, '2023-01-01'), -- En proceso de ingreso
+(21, 2, '2023-10-15'), -- Inscrito (actualizado)
+(22, 1, '2023-01-01'), -- En proceso de ingreso
+(22, 2, '2023-10-15'), -- Inscrito (actualizado)
+(23, 1, '2023-01-01'), -- En proceso de ingreso
+(23, 2, '2023-10-15'), -- Inscrito (actualizado)
+(24, 1, '2023-01-01'), -- En proceso de ingreso
+(24, 2, '2023-10-15'), -- Inscrito (actualizado)
+(25, 1, '2023-01-01'), -- En proceso de ingreso
+(25, 2, '2023-10-15'), -- Inscrito (actualizado)
+(26, 1, '2023-01-01'), -- En proceso de ingreso
+(26, 2, '2023-10-15'), -- Inscrito (actualizado)
+(27, 1, '2023-01-01'), -- En proceso de ingreso
+(27, 2, '2023-10-15'), -- Inscrito (actualizado)
+(28, 1, '2023-01-01'), -- En proceso de ingreso
+(28, 2, '2023-10-15'), -- Inscrito (actualizado)
+(29, 1, '2023-01-01'), -- En proceso de ingreso
+(29, 2, '2023-10-15'), -- Inscrito (actualizado)
+(30, 1, '2023-01-01'), -- En proceso de ingreso
+(30, 2, '2023-10-15'), -- Inscrito (actualizado)
+(31, 1, '2023-01-01'), -- En proceso de ingreso
+(31, 2, '2023-10-15'), -- Inscrito (actualizado)
+(32, 1, '2023-01-01'), -- En proceso de ingreso
+(32, 2, '2023-10-15'), -- Inscrito (actualizado)
+(33, 1, '2023-01-01'), -- En proceso de ingreso
+(33, 2, '2023-10-15'), -- Inscrito (actualizado)
+(34, 1, '2023-01-01'), -- En proceso de ingreso
+(34, 2, '2023-10-15'), -- Inscrito (actualizado)
+(35, 1, '2023-01-01'), -- En proceso de ingreso
+(35, 2, '2023-10-15'), -- Inscrito (actualizado)
+(36, 1, '2023-01-01'), -- En proceso de ingreso
+(36, 2, '2023-10-15'), -- Inscrito (actualizado)
+(37, 1, '2023-01-01'), -- En proceso de ingreso
+(37, 2, '2023-10-15'), -- Inscrito (actualizado)
+(38, 1, '2023-01-01'), -- En proceso de ingreso
+(38, 2, '2023-10-15'), -- Inscrito (actualizado)
+(39, 1, '2023-01-01'), -- En proceso de ingreso
+(39, 2, '2023-10-15'), -- Inscrito (actualizado)
+(40, 1, '2023-01-01'), -- En proceso de ingreso
+(40, 2, '2023-10-15'), -- Inscrito (actualizado)
+(41, 1, '2023-01-01'), -- En proceso de ingreso
+(41, 2, '2023-10-15'), -- Inscrito (actualizado)
+(42, 1, '2023-01-01'), -- En proceso de ingreso
+(42, 2, '2023-10-15'), -- Inscrito (actualizado)
+(43, 1, '2023-01-01'), -- En proceso de ingreso
+(43, 2, '2023-10-15'), -- Inscrito (actualizado)
+(44, 1, '2023-01-01'), -- En proceso de ingreso
+(44, 2, '2023-10-15'), -- Inscrito (actualizado)
+(45, 1, '2023-01-01'), -- En proceso de ingreso
+(45, 2, '2023-10-15'), -- Inscrito (actualizado)
+(46, 1, '2023-01-01'), -- En proceso de ingreso
+(46, 2, '2023-10-15'), -- Inscrito (actualizado)
+(47, 1, '2023-01-01'), -- En proceso de ingreso
+(47, 2, '2023-10-15'), -- Inscrito (actualizado)
+(48, 1, '2023-01-01'), -- En proceso de ingreso
+(48, 2, '2023-10-15'), -- Inscrito (actualizado)
+(49, 1, '2023-01-01'), -- En proceso de ingreso
+(49, 2, '2023-10-15'), -- Inscrito (actualizado)
+(50, 1, '2023-01-01'), -- En proceso de ingreso
+(50, 2, '2023-10-15'); -- Inscrito (actualizado)
 
 

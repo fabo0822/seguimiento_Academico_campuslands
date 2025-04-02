@@ -231,4 +231,14 @@ CREATE TABLE porcentajes_evaluacion (
     CHECK (porcentaje_teorico + porcentaje_practico + porcentaje_quices = 100.00)
 );
 
+-- Tabla intermedia para el historial de estados de los campers
+CREATE TABLE campers_estados (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    camper_id INT NOT NULL,
+    estado_id INT NOT NULL,
+    fecha_cambio DATE NOT NULL,
+    FOREIGN KEY (camper_id) REFERENCES campers(id),
+    FOREIGN KEY (estado_id) REFERENCES estados(id)
+);
+
 

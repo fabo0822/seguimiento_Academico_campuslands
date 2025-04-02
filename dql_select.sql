@@ -1,5 +1,5 @@
 -- 1. Obtener todos los campers inscritos actualmente
-SELECT c.identificacion, c.nombres, c.apellidos, e.nombre as estado
+SELECT  c.nombres as nombre, c.apellidos as apellido, e.nombre as estado
 FROM campers c
 INNER JOIN estados e ON c.estado_id = e.id
 WHERE e.nombre = 'Inscrito';
@@ -53,15 +53,11 @@ GROUP BY c.id, c.identificacion, c.nombres, c.apellidos
 HAVING COUNT(t.id) > 1;
 
 -- 9. Listar los campers y sus respectivos acudientes y teléfonos
-SELECT  c.nombres, c.apellidos, t.telefono, ac.nombres as nombre
+SELECT  c.nombres, c.apellidos, t.telefono, ac.nombres as acudiente, ac.telefono as telefono_acudiente
 FROM campers c
-LEFT JOIN telefono_camper t ON c.id = t.camper_id
+LEFT JOIN telefono_camper t ON c.id = t.camper_id 
 INNER JOIN acudiente ac ON c.acudiente_id = ac.id;
 
-
-
-
---revisar informacion  y corregir
 -- 10. Mostrar campers que aún no han sido asignados a una ruta
 SELECT c.identificacion, c.nombres, c.apellidos, e.nombre as estado, nr.nivel as nivel_riesgo, s.nombre as sede
 FROM campers c
@@ -74,45 +70,29 @@ WHERE m.id IS NULL;
 -- Consultas de Evaluaciones --
 
 -- 1. Obtener notas por tipo y módulo para cada camper
-SELECT 
-    c.nombres,
-    c.apellidos,
-    m.nombre as modulo,
-    e.nota_teorica,
-    e.nota_practica,
-    e.nota_trabajos
+SELECT c.nombres, c.apellidos, m.nombre as modulo, e.nota_teorica, e.nota_practica, e.nota_trabajos
 FROM campers c
 INNER JOIN evaluaciones e ON c.id = e.camper_id
 INNER JOIN modulos m ON e.modulo_id = m.id;
 
 -- 2. Calcular nota final por módulo
-SELECT 
-    c.nombres,
-    c.apellidos,
-    m.nombre as modulo,
-    e.nota_final
+SELECT  c.nombres, c.apellidos, m.nombre as modulo, e.nota_final
 FROM campers c
 INNER JOIN evaluaciones e ON c.id = e.camper_id
 INNER JOIN modulos m ON e.modulo_id = m.id;
 
---editar notas de algunos campers  'empty'
+
 -- 3. Campers que reprobaron módulos
-SELECT 
-    c.nombres,
-    c.apellidos,
-    m.nombre as modulo,
-    e.nota_final
+SELECT  c.nombres, c.apellidos, m.nombre as modulo, e.nota_final
 FROM campers c
 INNER JOIN evaluaciones e ON c.id = e.camper_id
 INNER JOIN modulos m ON e.modulo_id = m.id
 WHERE e.nota_final < 60;
 
 
---igual que en la tres agregar campers que por debajo de 60 'empty'
 -- 4. Módulos con más campers en bajo rendimiento
-SELECT 
-    m.nombre as modulo,
-    COUNT(c.id) as campers_bajo_rendimiento
+SELECT  m.nombre as modulo,
+COUNT(c.id) as campers_bajo_rendimiento
 FROM modulos m
 INNER JOIN evaluaciones e ON m.id = e.modulo_id
 INNER JOIN campers c ON e.camper_id = c.id
@@ -139,7 +119,6 @@ INNER JOIN evaluaciones e ON m.id = e.modulo_id
 GROUP BY r.id, r.nombre;
 
 
---revisar luego de hacer los insert 'empty'
 -- 7. Trainers con campers de bajo rendimiento
 SELECT DISTINCT
     t.nombres,
@@ -193,10 +172,7 @@ GROUP BY r.id, r.nombre, m.id, m.nombre;
 -- Consultas de Rutas y Áreas de Entrenamiento --
 
 -- 1. Mostrar todas las rutas de entrenamiento disponibles
-SELECT 
-    r.id,
-    r.nombre,
-    r.descripcion
+SELECT  r.id, r.nombre, r.descripcion
 FROM rutas r;
 
 -- 2. Obtener las rutas con su SGDB principal y alternativo
@@ -237,46 +213,42 @@ LEFT JOIN matriculas m ON r.id = m.ruta_id
 GROUP BY r.id, r.nombre;
 
 
---no es necesaria su sede borrar sede
+
 -- 5. Mostrar las áreas de entrenamiento y su capacidad máxima
-SELECT 
-    a.nombre as area,
-    a.capacidad_maxima,
-    s.nombre as sede
-FROM areas_entrenamiento a
+SELECT  a.nombre as area, a.capacidad,  s.nombre as sede
+FROM area a
 INNER JOIN sedes s ON a.sede_id = s.id;
 
 
---llenar algunas areas al maximo
+
 -- 6. Obtener las áreas que están ocupadas al 100%
 SELECT 
     a.nombre as area,
-    a.capacidad_maxima,
+    a.capacidad,
     COUNT(ca.camper_id) as ocupacion_actual
-FROM areas_entrenamiento a
+FROM area a
 INNER JOIN camper_area ca ON a.id = ca.area_id
-WHERE ca.fecha_fin IS NULL
-GROUP BY a.id, a.nombre, a.capacidad_maxima
-HAVING COUNT(ca.camper_id) >= a.capacidad_maxima;
+GROUP BY a.id, a.nombre, a.capacidad
+HAVING COUNT(ca.camper_id) >= a.capacidad;
 
 
---corregir ya qye no necesita el porcentaje
+
 -- 7. Verificar la ocupación actual de cada área
 SELECT 
     a.nombre as area,
-    a.capacidad_maxima,
+    a.capacidad,
     COUNT(ca.camper_id) as ocupacion_actual,
-    ROUND((COUNT(ca.camper_id) * 100.0 / a.capacidad_maxima), 2) as porcentaje_ocupacion
-FROM areas_entrenamiento a
-LEFT JOIN camper_area ca ON a.id = ca.area_id AND ca.fecha_fin IS NULL
-GROUP BY a.id, a.nombre, a.capacidad_maxima;
+    ROUND((COUNT(ca.camper_id) * 100.0 / a.capacidad), 2) as porcentaje_ocupacion
+FROM area a
+LEFT JOIN camper_area ca ON a.id = ca.area_id 
+GROUP BY a.id, a.nombre, a.capacidad;
 
 -- 8. Consultar los horarios disponibles por cada área
 SELECT 
     a.nombre as area,
     h.hora_inicio,
     h.hora_fin
-FROM areas_entrenamiento a
+FROM area a
 CROSS JOIN horarios h
 LEFT JOIN asignaciones_trainer at ON a.id = at.area_id 
     AND h.id = at.horario_id
@@ -287,42 +259,34 @@ ORDER BY a.nombre, h.hora_inicio;
 SELECT 
     a.nombre as area,
     COUNT(ca.camper_id) as total_campers
-FROM areas_entrenamiento a
-LEFT JOIN camper_area ca ON a.id = ca.area_id
-WHERE ca.fecha_fin IS NULL
+FROM area a
+INNER JOIN camper_area ca ON a.id = ca.area_id
 GROUP BY a.id, a.nombre
-ORDER BY total_campers DESC;
+ORDER BY total_campers DESC
+limit 5;
 
 -- 10. Listar las rutas con sus respectivos trainers y áreas asignadas
---revisar quitar salon y area
+
 SELECT 
-    r.nombre as ruta,
-    CONCAT(t.nombres, ' ', t.apellidos) as trainer,
-    a.nombre as area,
-    s.nombre as salon,
-    CONCAT(h.hora_inicio, ' - ', h.hora_fin) as horario
+ r.nombre as ruta,
+CONCAT(t.nombres, ' ', t.apellidos) as trainer,  a.nombre as area
 FROM rutas r
 LEFT JOIN asignaciones_trainer at ON r.id = at.ruta_id
 LEFT JOIN trainers t ON at.trainer_id = t.id
-LEFT JOIN areas_entrenamiento a ON at.area_id = a.id
-LEFT JOIN salones s ON at.salon_id = s.id
-LEFT JOIN horarios h ON at.horario_id = h.id
+LEFT JOIN area a ON at.area_id = a.id
 ORDER BY r.nombre;
 
 -- Consultas Avanzadas con Subconsultas --
 
+--REVISAR APARECE SOLO UN CAMPER
 -- 1. Obtener los campers con la nota más alta en cada módulo
-SELECT 
-    m.nombre as modulo,
-    c.nombres,
-    c.apellidos,
-    e.nota_final
+SELECT  m.nombre as modulo, c.nombres, c.apellidos, e.nota_final
 FROM evaluaciones e
 INNER JOIN campers c ON e.camper_id = c.id
 INNER JOIN modulos m ON e.modulo_id = m.id
 WHERE (e.modulo_id, e.nota_final) IN (
     SELECT modulo_id, MAX(nota_final)
-    FROM evaluaciones
+    FROM evaluciones
     GROUP BY modulo_id
 );
 --revisar
@@ -341,12 +305,12 @@ GROUP BY r.id, r.nombre;
 -- 3. Áreas con más del 80% de ocupación
 SELECT 
     a.nombre as area,
-    a.capacidad_maxima,
+    a.capacidad,
     COUNT(ca.camper_id) as ocupacion_actual,
-    (COUNT(ca.camper_id) * 100.0 / a.capacidad_maxima) as porcentaje_ocupacion
-FROM areas_entrenamiento a
+    (COUNT(ca.camper_id) * 100.0 / a.capacidad) as porcentaje_ocupacion
+FROM area a
 LEFT JOIN camper_area ca ON a.id = ca.area_id AND ca.fecha_fin IS NULL
-GROUP BY a.id, a.nombre, a.capacidad_maxima
+GROUP BY a.id, a.nombre, a.capacidad
 HAVING porcentaje_ocupacion > 80;
 
 --agregar insert para esta consulta
@@ -398,7 +362,7 @@ WHERE NOT EXISTS (
     WHERE m.camper_id = c.id AND (e.nota_final < 60 OR e.nota_final IS NULL)
 );
 
---agregar rutas 'empty'
+
 -- 8. Rutas con más de 10 campers en bajo rendimiento
 SELECT 
     r.nombre as ruta,
@@ -477,7 +441,7 @@ LEFT JOIN ruta_modulo rm ON r.id = rm.ruta_id
 GROUP BY r.id, r.nombre
 ORDER BY total_modulos DESC;
 
---agregarle mas de un estado a los campers
+-- crear tabla estados_campers por ende tambien necesito trainers_revisar la anterior
 -- 15. Campers con múltiples cambios de estado
 SELECT 
     c.nombres,
@@ -502,7 +466,7 @@ INNER JOIN modulos m ON e.modulo_id = m.id
 WHERE e.nota_teorica > e.nota_practica;
 
 
---revisar aparece uno por debajo del 9
+
 -- 17. Módulos con media de trabajos superior a 9
 SELECT 
     m.nombre as modulo,
@@ -513,7 +477,7 @@ GROUP BY m.id, m.nombre
 HAVING promedio_trabajos > 9;
 
 
---revisar da mal los datos
+-- mal mal mal
 -- 18. Ruta con mayor tasa de graduación
 SELECT 
     r.nombre as ruta,
@@ -539,12 +503,12 @@ WHERE nr.nivel IN ('Medio', 'Alto');
 -- 20. Diferencia entre capacidad y ocupación por área
 SELECT 
     a.nombre as area,
-    a.capacidad_maxima,
+    a.capacidad,
     COUNT(ca.camper_id) as ocupacion_actual,
-    (a.capacidad_maxima - COUNT(ca.camper_id)) as espacios_disponibles
-FROM areas_entrenamiento a
+    (a.capacidad - COUNT(ca.camper_id)) as espacios_disponibles
+FROM area a
 LEFT JOIN camper_area ca ON a.id = ca.area_id AND ca.fecha_fin IS NULL
-GROUP BY a.id, a.nombre, a.capacidad_maxima;
+GROUP BY a.id, a.nombre, a.capacidad;
 
 -- Consultas con JOINs Básicos --
 
@@ -593,7 +557,7 @@ SELECT
 FROM rutas r
 INNER JOIN asignaciones_trainer at ON r.id = at.ruta_id
 INNER JOIN trainers t ON at.trainer_id = t.id
-INNER JOIN areas_entrenamiento a ON at.area_id = a.id
+INNER JOIN area a ON at.area_id = a.id
 INNER JOIN horarios h ON at.horario_id = h.id;
 
 --revisar mal estructurada
@@ -609,7 +573,7 @@ INNER JOIN matriculas m ON c.id = m.camper_id
 INNER JOIN rutas r ON m.ruta_id = r.id
 INNER JOIN asignaciones_trainer at ON r.id = at.ruta_id
 INNER JOIN trainers t ON at.trainer_id = t.id
-WHERE m.estado = 'Cursando';
+WHERE m.estado = 'En curso';
 
 -- 6. Evaluaciones con detalles de camper, módulo y ruta
 SELECT 
@@ -633,7 +597,7 @@ SELECT
     CONCAT(h.hora_inicio, ' - ', h.hora_fin) as horario
 FROM trainers t
 INNER JOIN asignaciones_trainer at ON t.id = at.trainer_id
-INNER JOIN areas_entrenamiento a ON at.area_id = a.id
+INNER JOIN area a ON at.area_id = a.id
 INNER JOIN horarios h ON at.horario_id = h.id
 ORDER BY t.nombres, t.apellidos, h.hora_inicio;
 
@@ -664,11 +628,88 @@ ORDER BY r.nombre, rm.orden;
 SELECT 
     a.nombre as area,
     c.nombres,
-    c.apellidos,
-    ca.fecha_inicio,
-    ca.fecha_fin
-FROM areas_entrenamiento a
-LEFT JOIN camper_area ca ON a.id = ca.area_id
-LEFT JOIN campers c ON ca.camper_id = c.id
-WHERE ca.fecha_fin IS NULL OR ca.fecha_fin >= CURRENT_DATE
-ORDER BY a.nombre, c.nombres;
+    c.apellidos
+FROM area a
+INNER JOIN camper_area ca ON a.id = ca.area_id
+INNER JOIN campers c ON ca.camper_id = c.id;
+
+-- JOINs con condiciones específicas
+
+-- 1. Listar los campers que han aprobado todos los módulos de su ruta (nota_final >= 60).
+SELECT c.nombres, c.apellidos, r.nombre AS ruta
+FROM campers c
+INNER JOIN matriculas m ON c.id = m.camper_id
+INNER JOIN rutas r ON m.ruta_id = r.id
+INNER JOIN ruta_modulo rm ON m.ruta_id = rm.ruta_id
+INNER JOIN evaluaciones e ON c.id = e.camper_id AND rm.modulo_id = e.modulo_id
+GROUP BY c.id, r.id
+HAVING MIN(e.nota_final) >= 60;
+
+-- 2. Mostrar las rutas que tienen más de 10 campers inscritos actualmente.
+SELECT r.nombre AS ruta, COUNT(m.camper_id) AS total_campers
+FROM rutas r
+INNER JOIN matriculas m ON r.id = m.ruta_id
+GROUP BY r.id
+HAVING COUNT(m.camper_id) > 10;
+
+-- 3. Consultar las áreas que superan el 80% de su capacidad con el número actual de campers asignados.
+SELECT a.nombre AS area, a.capacidad, COUNT(ca.camper_id) AS ocupacion_actual,
+       ROUND((COUNT(ca.camper_id) * 100.0 / a.capacidad), 2) AS porcentaje_ocupacion
+FROM area a
+LEFT JOIN camper_area ca ON a.id = ca.area_id AND ca.fecha_fin IS NULL
+GROUP BY a.id
+HAVING porcentaje_ocupacion > 80;
+
+-- 4. Obtener los trainers que imparten más de una ruta diferente.
+SELECT t.nombres, t.apellidos, COUNT(DISTINCT at.ruta_id) AS total_rutas
+FROM trainers t
+INNER JOIN asignaciones_trainer at ON t.id = at.trainer_id
+GROUP BY t.id
+HAVING total_rutas > 1;
+
+-- 5. Listar las evaluaciones donde la nota práctica es mayor que la nota teórica.
+SELECT c.nombres, c.apellidos, m.nombre AS modulo, e.nota_teorica, e.nota_practica
+FROM evaluaciones e
+INNER JOIN campers c ON e.camper_id = c.id
+INNER JOIN modulos m ON e.modulo_id = m.id
+WHERE e.nota_practica > e.nota_teorica;
+
+-- 6. Mostrar campers que están en rutas cuyo SGDB principal es MySQL.
+SELECT c.nombres, c.apellidos, r.nombre AS ruta
+FROM campers c
+INNER JOIN matriculas m ON c.id = m.camper_id
+INNER JOIN rutas r ON m.ruta_id = r.id
+INNER JOIN ruta_modulo rm ON r.id = rm.ruta_id
+INNER JOIN modulo_tecnologia mt ON rm.modulo_id = mt.modulo_id
+INNER JOIN tecnologias t ON mt.tecnologia_id = t.id
+WHERE mt.es_principal = 1 AND t.nombre = 'MySQL';
+
+-- 7. Obtener los nombres de los módulos donde los campers han tenido bajo rendimiento.
+SELECT DISTINCT m.nombre AS modulo
+FROM modulos m
+INNER JOIN evaluaciones e ON m.id = e.modulo_id
+WHERE e.nota_final < 60;
+
+-- 8. Consultar las rutas con más de 3 módulos asociados.
+SELECT r.nombre AS ruta, COUNT(rm.modulo_id) AS total_modulos
+FROM rutas r
+INNER JOIN ruta_modulo rm ON r.id = rm.ruta_id
+GROUP BY r.id
+HAVING COUNT(rm.modulo_id) > 3;
+
+-- 9. Listar las inscripciones realizadas en los últimos 30 días con sus respectivos campers y rutas.
+SELECT c.nombres, c.apellidos, r.nombre AS ruta, m.fecha_inicio
+FROM matriculas m
+INNER JOIN campers c ON m.camper_id = c.id
+INNER JOIN rutas r ON m.ruta_id = r.id
+WHERE m.fecha_inicio >= CURDATE() - INTERVAL 30 DAY;
+
+-- 10. Obtener los trainers que están asignados a rutas con campers en estado de "Alto Riesgo".
+SELECT DISTINCT t.nombres, t.apellidos
+FROM trainers t
+INNER JOIN asignaciones_trainer at ON t.id = at.trainer_id
+INNER JOIN matriculas m ON at.ruta_id = m.ruta_id
+INNER JOIN campers c ON m.camper_id = c.id
+WHERE c.nivel_riesgo_id = (SELECT id FROM niveles_riesgo WHERE nivel = 'Alto');
+
+--  JOINs con funciones de agregación
