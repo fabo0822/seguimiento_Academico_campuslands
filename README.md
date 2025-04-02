@@ -69,16 +69,15 @@ Si encuentras errores al ejecutar los scripts, revisa los mensajes de error en M
 Si necesitas más ayuda, consulta la documentación de MySQL o contacta a un administrador de base de datos.
 
 ## Estructura de la Base de Datos
-- **campers**: Almacena información sobre los campers matriculados en el programa.
+- **campers**: Almacena información sobre los campers matriculados en el programa, incluyendo su identificación, nombres, apellidos y estado.
 - **productos**: Contiene los detalles de los disfraces disponibles para la venta.
 - **pedidos**: Registra los pedidos realizados por los campers.
 - **detalles_pedido**: Relaciona los productos con los pedidos, especificando cantidades y precios.
-- **estados**: Define los diferentes estados que puede tener un pedido (e.g., Pendiente, Enviado, Entregado).
+- **modulos**: Contiene los módulos disponibles en el programa, incluyendo su nombre y descripción.
 - **matriculas**: Almacena información sobre las inscripciones de los campers en diferentes rutas.
-- **modulos**: Contiene los módulos disponibles en el programa.
-- **tecnologias**: Almacena información sobre las tecnologías asociadas a los módulos.
-- **asignaciones_trainer**: Relaciona los trainers con los módulos que imparten.
-- **horarios**: Almacena los horarios de las clases y asignaciones de los trainers.
+- **trainers**: Almacena información sobre los trainers, incluyendo su identificación, nombres, apellidos y especialidad.
+- **evaluaciones**: Registra las evaluaciones realizadas a los campers, incluyendo notas y fechas.
+- **campers_estados**: Almacena el historial de cambios de estado de los campers, permitiendo un seguimiento de su situación a lo largo del tiempo.
 
 ## Ejemplos de Consultas
 - **Consulta básica**: Obtener todos los campers matriculados.
